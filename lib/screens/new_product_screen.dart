@@ -25,6 +25,7 @@ class NewProductScreen extends StatelessWidget {
       'Soft Drinks',
       'Water',
     ];
+    print(productController.newProduct['imageUrl']);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add a Product'),
@@ -41,7 +42,7 @@ class NewProductScreen extends StatelessWidget {
                 child: Card(
                   margin: EdgeInsets.zero,
                   color: Colors.black,
-                  child: Stack(children: [
+                  child: Stack(alignment: Alignment.center, children: [
                     productController.newProduct['imageUrl'] != null
                         ? Positioned.fill(
                             top: 0,
@@ -51,8 +52,7 @@ class NewProductScreen extends StatelessWidget {
                               fit: BoxFit.cover,
                             ))
                         : const SizedBox(),
-                    Positioned.fill(
-                      child: Row(
+                    Row(
                         children: [
                           IconButton(
                             onPressed: () async {
@@ -89,8 +89,7 @@ class NewProductScreen extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                        ],
-                      ),
+                      ],
                     ),
                   ]),
                 ),
